@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b1d" />
+    <title>تحميل التطبيق</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --violet: #8b5cf6;
+        --purple: #c084fc;
+        --blue: #38bdf8;
+        --ink: #f8fafc;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 17% 17%, rgba(56, 189, 248, .24), transparent 31rem),
+          radial-gradient(circle at 85% 78%, rgba(192, 132, 252, .25), transparent 28rem),
+          #090b1d;
+        color: var(--ink);
+        font-family: Tahoma, Arial, sans-serif;
+      }
+
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(2px);
+        opacity: .45;
+        pointer-events: none;
+      }
+
+      .orb-one {
+        width: 13rem;
+        height: 13rem;
+        top: -3rem;
+        right: 8%;
+        background: linear-gradient(135deg, var(--blue), transparent 70%);
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .orb-two {
+        width: 11rem;
+        height: 11rem;
+        bottom: -3rem;
+        left: 9%;
+        background: linear-gradient(135deg, var(--purple), transparent 70%);
+        animation: float 9s ease-in-out infinite reverse;
+      }
+
+      main {
+        width: min(92%, 520px);
+        padding: 3.25rem 2rem 2.3rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, .14);
+        border-radius: 30px;
+        background: rgba(16, 18, 43, .68);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, .38), inset 0 1px rgba(255, 255, 255, .09);
+        backdrop-filter: blur(16px);
+      }
+
+      .app-icon {
+        width: 74px;
+        height: 74px;
+        margin: 0 auto 1.45rem;
+        display: grid;
+        place-items: center;
+        border-radius: 23px;
+        background: linear-gradient(145deg, #38bdf8, #7c3aed 58%, #d946ef);
+        box-shadow: 0 15px 30px rgba(124, 58, 237, .35), inset 0 1px rgba(255, 255, 255, .45);
+        font-size: 2.25rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.75rem, 6vw, 2.4rem);
+        letter-spacing: -.04em;
+      }
+
+      p {
+        margin: .8rem auto 2.1rem;
+        max-width: 28rem;
+        color: #cbd5e1;
+        font-size: 1.03rem;
+        line-height: 1.8;
+      }
+
+      .download {
+        position: relative;
+        isolation: isolate;
+        width: 100%;
+        min-height: 68px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .75rem;
+        padding: 1rem 1.5rem;
+        overflow: hidden;
+        border: 0;
+        border-radius: 18px;
+        background: linear-gradient(100deg, #38bdf8, #8b5cf6 50%, #d946ef);
+        box-shadow: 0 16px 35px rgba(124, 58, 237, .38);
+        color: white;
+        font: inherit;
+        font-weight: 800;
+        font-size: 1.15rem;
+        text-decoration: none;
+        transition: transform .22s ease, box-shadow .22s ease;
+      }
+
+      .download::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 42%;
+        height: 170%;
+        top: -35%;
+        right: -60%;
+        transform: rotate(22deg);
+        background: rgba(255, 255, 255, .3);
+        transition: right .55s ease;
+      }
+
+      .download:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 23px 45px rgba(124, 58, 237, .52);
+      }
+
+      .download:hover::before { right: 125%; }
+      .download:active { transform: translateY(-1px) scale(.99); }
+      .download:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+
+      .arrow {
+        width: 29px;
+        height: 29px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .2);
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+
+      .hint {
+        margin: 1.35rem 0 0;
+        color: #94a3b8;
+        font-size: .8rem;
+      }
+
+      @keyframes float {
+        50% { transform: translateY(24px) translateX(-12px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before { animation: none !important; transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <main>
+      <div class="app-icon" aria-hidden="true">✦</div>
+      <h1>حمّل التطبيق الآن</h1>
+      <p>اضغط على الزر أدناه لبدء تنزيل التطبيق على جهازك.</p>
+      <a class="download" href="FlutterIpaExport.ipa" download="FlutterIpaExport.ipa">
+        <span class="arrow" aria-hidden="true">↓</span>
+        تنزيل ملف التطبيق
+      </a>
+      <p class="hint">FlutterIpaExport.ipa</p>
+    </main>
+  </body>
+</html>
